@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.pepe.userserv.model.Bike;
 import com.pepe.userserv.model.Car;
 
-@FeignClient(name = "bike-service", url = "http://localhost:8003/bike")
+@FeignClient(name = "bike-service")
 public interface BikeFeignClient {
 
-	@PostMapping()
+	@PostMapping("/bike")
 	Bike saveBike(@RequestBody Bike bike);
 	
-	@GetMapping("/user/{id}")
+	@GetMapping("/bike/user/{id}")
 	List<Bike> getBikes(@PathVariable("id") int id);
 	
 	

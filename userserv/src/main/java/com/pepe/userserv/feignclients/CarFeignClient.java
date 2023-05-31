@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.pepe.userserv.model.Car;
 
-@FeignClient(name = "car-service", url = "http://localhost:8002/car")
+@FeignClient(name = "car-service")
 
 public interface CarFeignClient {
 	
-	@PostMapping()
+	@PostMapping("/car")
 	Car saveCar(@RequestBody Car car);
 	
-	@GetMapping("/user/{id}")
+	@GetMapping("/car/user/{id}")
 	List<Car> getCars(@PathVariable("id") int id);
 	
 
